@@ -32,10 +32,19 @@ if(isset($_GET['name'])) {
 					}';
 			break;
 		case "book_appointment":
-			$data = '{
-				"code": "1", 
-				"message" : "Appointment has been schedule with Dr. XXX on XX-XX-XXXX XX:XX"
-				}';
+		    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+				  $json =  json_decode(file_get_contents('php://input'), true);				
+					 $data = '{
+					"code": "1", 
+					"message" : "Appointment has been schedule with patient name '.$json['detail']['patient_name'].'"
+				}';				 				 
+			} else  {
+				$data = '{
+					"code": "0", 
+					"message" : "Only support method post"
+					}';
+			}	
+		    
 			break;
 		case "book_appointment_fail":
 			$data = '{
@@ -57,6 +66,8 @@ if(isset($_GET['name'])) {
 }
 
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 header('Content-Type: application/json');
 echo $data;
 ?> 
