@@ -11,13 +11,13 @@ Medkumo API
   "id": 1,
   "name": "Dr. Suresh",
   "doctor_key": "ABC123456789",
-  "avatar": "http://sdk.medkumo.loc/user.png"
+  "avatar": "http://sdk.medkumo.loc/images/user.png"
 },
 {
   "id": 2,
   "name": "Dr. Vikar",
   "doctor_key": "ABC123456CDE",
-  "avatar": "http://sdk.medkumo.loc/user.png"
+  "avatar": "http://sdk.medkumo.loc/images/user.png"
 }
 ```           
 ### Book an appointment
